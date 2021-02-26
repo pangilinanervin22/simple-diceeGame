@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
             scoreOne = getRandomNumber();
             firstImage.setImageResource(diceArray[scoreOne]);
             getWinner();
+            playerOne.setEnabled(false);
+
         });
 
         playerTwo.setOnClickListener(v -> {
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             scoreTwo = getRandomNumber();
             secondImage.setImageResource(diceArray[scoreTwo]);
             getWinner();
+            playerTwo.setEnabled(false);
         });
 
     }
@@ -82,11 +85,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void restartAll(){
+        scoreOne = 0;
+        scoreTwo = 0;
         firstImage.setImageResource(R.drawable.dice);
         secondImage.setImageResource(R.drawable.dice);
         winnerText.setText("");
-        scoreOne = 0;
-        scoreTwo = 0;
+        playerTwo.setEnabled(true);
+        playerOne.setEnabled(true);
     }
 
     public void restartDelay() {
