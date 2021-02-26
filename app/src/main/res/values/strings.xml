@@ -3,6 +3,7 @@
     <string name="button1">Player 1</string>
     <string name="button2">Player 2</string>
     <string name="test">wew</string>
-    <string name="winnerOne">One Win</string>
-    <string name="winnerTwo">Two Win</string>
+    <string name="winnerOne">Player One Win</string>
+    <string name="winnerTwo">Player Two Win</string>
+    <string name="draw">draw</string>
 </resources>

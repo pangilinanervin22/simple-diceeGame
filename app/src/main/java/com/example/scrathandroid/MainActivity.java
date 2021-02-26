@@ -2,7 +2,7 @@
 package com.example.scrathandroid;
 
 import android.os.Bundle;
-import android.view.View;
+import android.os.SystemClock;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,11 +13,13 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button player1, player2, startBtn;
+    private Button playerOne, playerTwo;
     private ImageView firstImage, secondImage;
     private TextView winnerText;
+    int scoreOne, scoreTwo = 0;
 
     final int[] diceArray = {
+            0,
             R.drawable.dice1,
             R.drawable.dice2,
             R.drawable.dice3,
@@ -25,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.dice5,
             R.drawable.dice6
     };
-    int scoreOne, scoreTwo = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,60 +34,71 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         System.out.println("WEW");
-        player1 = findViewById(R.id.player1);
-        player2 = findViewById(R.id.player2);
+        playerOne = findViewById(R.id.player1);
+        playerTwo = findViewById(R.id.player2);
         firstImage = findViewById(R.id.firstDice);
         secondImage = findViewById(R.id.SecondDice);
         winnerText = findViewById(R.id.winner);
-        startBtn = findViewById(R.id.startBtn);
 
 
-
-        player1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                winnerText.setText("");
-                Random rng1ST = new Random();
-                int randonNum1 = rng1ST.nextInt(6);
-                scoreOne = randonNum1;
-                firstImage.setImageResource(diceArray[randonNum1]);
-                getWinnerText(scoreOne,scoreTwo);
-            }
+        playerOne.setOnClickListener(v -> {
+            winnerText.setText("");
+            scoreOne = getRandomNumber();
+            firstImage.setImageResource(diceArray[scoreOne]);
+            getWinner();
         });
-        player2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Random rng2ND = new Random();
-                int randonNum2 = rng2ND.nextInt(6);
-                scoreTwo = randonNum2;
-                secondImage.setImageResource(diceArray[randonNum2]);
-                getWinnerText(scoreOne,scoreTwo);
-            }
-        });
-        startBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               winnerText.setText("");
-               firstImage.setImageResource(R.drawable.dice);
-               secondImage.setImageResource(R.drawable.dice);
-                scoreOne = 0;
-                scoreTwo = 0;
-            }
+
+        playerTwo.setOnClickListener(v -> {
+            winnerText.setText("");
+            scoreTwo = getRandomNumber();
+            secondImage.setImageResource(diceArray[scoreTwo]);
+            getWinner();
         });
 
     }
 
-    public void getWinnerText(int scoreOne, int scoreTwo){
-        if (scoreOne > scoreTwo) {
+
+    public int getRandomNumber(){
+        Random random = new Random();
+        int randomNumber = random.nextInt(6-1)+1;
+        return randomNumber;
+    }
+
+
+    public void getWinner() {
+        System.out.println(scoreOne +" | " + scoreTwo);
+        if (scoreOne == 0 || scoreTwo == 0){
+            winnerText.setText("");
+            return;
+        }else if(scoreOne == scoreTwo){
+            winnerText.setText(R.string.draw);
+        }else if(scoreOne > scoreTwo){
             winnerText.setText(R.string.winnerOne);
-        } else if (scoreTwo > scoreOne) {
+        }else {
             winnerText.setText(R.string.winnerTwo);
-        } else  if(scoreOne == 1 || scoreTwo == 1){
-
-        }else if (scoreOne == scoreTwo){
-            winnerText.setText("Draw");
         }
+        restartDelay();
+
     }
+
+    public void restartAll(){
+        firstImage.setImageResource(R.drawable.dice);
+        secondImage.setImageResource(R.drawable.dice);
+        winnerText.setText("");
+        scoreOne = 0;
+        scoreTwo = 0;
+    }
+
+    public void restartDelay() {
+        new Thread(() -> {
+            SystemClock.sleep(1500);
+            runOnUiThread(() -> {
+                restartAll();
+            });
+        }).start();
+    }
+
+
 
 
 }
