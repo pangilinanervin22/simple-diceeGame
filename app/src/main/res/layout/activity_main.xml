@@ -53,9 +53,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/diceContain"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp">
+        android:layout_marginBottom="120dp">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/player1"
@@ -75,13 +75,6 @@
             android:background="@drawable/buttonradius"
             android:backgroundTint="#FF9800"/>
     </LinearLayout>
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="500dp"
-        android:layout_alignParentBottom="true"
-        android:src="@drawable/rain"/>
 
 
 </RelativeLayout>

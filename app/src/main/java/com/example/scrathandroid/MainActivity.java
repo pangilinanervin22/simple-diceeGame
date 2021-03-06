@@ -1,6 +1,7 @@
 
 package com.example.scrathandroid;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.widget.Button;
@@ -80,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         }else {
             winnerText.setText(R.string.winnerTwo);
         }
+        MediaPlayer mp = MediaPlayer.create(this, R.raw.win_sound);
+        mp.start();
         restartDelay();
 
     }
@@ -105,5 +108,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
 }
+
+
+
+
+
+
