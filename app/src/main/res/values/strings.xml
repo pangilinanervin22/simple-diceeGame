@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">ScrathAndroid</string>
+    <string name="app_name">Dicee</string>
     <string name="button1">Player 1</string>
     <string name="button2">Player 2</string>
-    <string name="test">wew</string>
+    <string name="test">shit</string>
     <string name="winnerOne">Player One Win</string>
     <string name="winnerTwo">Player Two Win</string>
     <string name="draw">draw</string>

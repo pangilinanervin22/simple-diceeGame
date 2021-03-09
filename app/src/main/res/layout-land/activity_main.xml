@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/casino"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/winner"
+        android:layout_width="290dp"
+        android:layout_height="120dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="70dp"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:textSize="45sp" />
+
+    <ImageView
+        android:id="@+id/logoCasino"
+        android:layout_width="350dp"
+        android:layout_height="240dp"
+
+        android:src="@drawable/wew" />
+
+    <LinearLayout
+        android:id="@+id/diceContain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:layout_alignParentEnd="true"
+        android:layout_marginRight="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/firstDice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/dice" />
+
+        <ImageView
+            android:id="@+id/SecondDice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/dice" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="20dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/player1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="100dp"
+            android:background="@drawable/buttonradius"
+            android:backgroundTint="@color/teal_200"
+            android:text="@string/button1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/player2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/buttonradius"
+            android:backgroundTint="#FF9800"
+            android:text="@string/button2" />
+    </LinearLayout>
+
+
+</RelativeLayout>

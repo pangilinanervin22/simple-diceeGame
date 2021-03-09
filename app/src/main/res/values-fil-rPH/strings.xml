@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dicee</string>
+    <string name="button1">Manlalaro 1</string>
+    <string name="button2">Manlalaro 2</string>
+    <string name="test">hotdog</string>
+    <string name="winnerOne">Manalalaro 1 Panalo</string>
+    <string name="winnerTwo">Manalalaro 2 Panalo</string>
+    <string name="draw">tabla</string>
+</resources>
